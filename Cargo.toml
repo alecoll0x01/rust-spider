@@ -1,0 +1,22 @@
+[package]
+name = "rust-spider"
+version = "0.1.0"
+edition = "2021"
+authors = ["Alessandro Colluci <ale.fab.colluci@gmail.com>"]
+description = "Web crawler que busca informações específicas em sites"
+license = "MIT"
+
+
+[dependencies]
+reqwest = { version = "0.11", features = ["json"] }
+scraper = "0.12"
+url = "2.2"
+tokio = { version = "1.0", features = ["full"] }
+clap = { version = "4.0", features = ["derive"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'
+strip = true
